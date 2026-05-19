@@ -1,26 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import { useNavigation } from "@/hooks/useNavigation";
 
 export default function Sidebar() {
 
-  // ===================== STATE =====================
-  // Controls mobile sidebar open/close
+  // Sidebar open/close state
   const [open, setOpen] = useState(false);
 
-  // ===================== HANDLER =====================
-  // Close sidebar when a navigation link is clicked
-  const handleNavClick = () => {
+  // Navigation hook
+  const { active, navigate } = useNavigation();
+
+  // Handle navigation click
+  const handleNavigation = (section: string) => {
+    navigate(section);
     setOpen(false);
   };
 
   return (
     <>
-      {/* =========================================================
-          NAV TOGGLER (MOBILE MENU BUTTON)
-          - Shows hamburger icon
-          - Toggles sidebar open/close
-      ========================================================= */}
+      {/* Mobile Nav Toggler */}
       <div
         className={`nav-toggler ${open ? "open" : ""}`}
         onClick={() => setOpen(!open)}
@@ -28,64 +27,75 @@ export default function Sidebar() {
         <span></span>
       </div>
 
-      {/* =========================================================
-          SIDEBAR CONTAINER
-          - Left fixed navigation menu
-          - Contains logo + nav links
-      ========================================================= */}
+      {/* Sidebar */}
       <div className={`sidebar ${open ? "open" : ""}`}>
 
-        {/* ===================== LOGO ===================== */}
+        {/* Logo */}
         <div className="logo">
-          <a href="#home">
+          <a href="#Home">
             <span>A</span>mol
           </a>
         </div>
 
-        {/* ===================== NAVIGATION LINKS =====================
-            Matches page folder names in src/pages/
-            and SCSS files in src/scss/pages/
-        ========================================================= */}
+        {/* Navigation */}
         <ul className="nav">
 
-          {/* Home — src/pages/Home/Home.tsx */}
           <li>
-            <a href="#home" className="active" onClick={handleNavClick}>
+            <a
+              href="#Home"
+              className={active === "Home" ? "active" : ""}
+              onClick={() => handleNavigation("Home")}
+            >
               <i className="fa fa-home"></i> Home
             </a>
           </li>
 
-          {/* Profile — src/pages/Profile/Profile.tsx */}
           <li>
-            <a href="#profile" onClick={handleNavClick}>
+            <a
+              href="#Profile"
+              className={active === "Profile" ? "active" : ""}
+              onClick={() => handleNavigation("Profile")}
+            >
               <i className="fa fa-user"></i> Profile
             </a>
           </li>
 
-          {/* Tech Stack — src/pages/TechStack/TechStack.tsx */}
           <li>
-            <a href="#techstack" onClick={handleNavClick}>
+            <a
+              href="#TechStack"
+              className={active === "TechStack" ? "active" : ""}
+              onClick={() => handleNavigation("TechStack")}
+            >
               <i className="fa fa-code"></i> Tech Stack
             </a>
           </li>
 
-          {/* Services — src/pages/Services/Services.tsx */}
           <li>
-            <a href="#services" onClick={handleNavClick}>
+            <a
+              href="#Services"
+              className={active === "Services" ? "active" : ""}
+              onClick={() => handleNavigation("Services")}
+            >
               <i className="fa fa-list"></i> Services
             </a>
           </li>
 
-          {/* Projects — src/pages/Projects/Projects.tsx */}
           <li>
-            <a href="#projects" onClick={handleNavClick}>
+            <a
+              href="#Projects"
+              className={active === "Projects" ? "active" : ""}
+              onClick={() => handleNavigation("Projects")}
+            >
               <i className="fa fa-briefcase"></i> Projects
             </a>
           </li>
 
-          {/* Connect — src/pages/Connect/Connect.tsx */}
           <li>
-            <a href="#connect" onClick={handleNavClick}>
+            <a
+              href="#Connect"
+              className={active === "Connect" ? "active" : ""}
+              onClick={() => handleNavigation("Connect")}
+            >
               <i className="fa fa-comments"></i> Connect
             </a>
           </li>
