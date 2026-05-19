@@ -1,0 +1,53 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  color: var(--text-black-900);
+
+  .home-info {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  h3.hello {
+    font-size: 28px;
+    margin: 15px 0;
+
+    span {
+      font-family: "Clicker Script", cursive;
+      font-size: 50px;
+      font-weight: 700;
+      color: var(--skin-color);
+      background: linear-gradient(45deg, var(--skin-color), #ff6ec4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  h3.my-profession {
+    font-size: 30px;
+    margin: 15px 0;
+  }
+
+  .typing {
+    color: var(--skin-color);
+  }
+
+  p {
+    margin-bottom: 70px;
+    font-size: 20px;
+    color: var(--text-black-700);
+  }
+
+  .home-img {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: center;
+    position: relative;
+
+    img {
+      height: 400px;
+      border-radius: 5px;
+      animation: imgAnim 4s linear infinite;
+    }
+  }
+}
