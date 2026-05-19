@@ -1,25 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { useNavigation } from "@/hooks/useNavigation";
 
-export default function Sidebar() {
+interface Props {
+  activeSection: string;
+  onNavigate: (section: string) => void;
+}
 
-  // Sidebar open/close state
+export default function Sidebar({ activeSection, onNavigate }: Props) {
   const [open, setOpen] = useState(false);
 
-  // Navigation hook
-  const { active, navigate } = useNavigation();
-
-  // Handle navigation click
-  const handleNavigation = (section: string) => {
-    navigate(section);
+  const handleNavigation = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    section: string
+  ) => {
+    e.preventDefault();
+    onNavigate(section);
     setOpen(false);
   };
 
   return (
     <>
-      {/* Mobile Nav Toggler */}
+      {/* NAV TOGGLER */}
       <div
         className={`nav-toggler ${open ? "open" : ""}`}
         onClick={() => setOpen(!open)}
@@ -27,24 +29,24 @@ export default function Sidebar() {
         <span></span>
       </div>
 
-      {/* Sidebar */}
+      {/* SIDEBAR */}
       <div className={`sidebar ${open ? "open" : ""}`}>
 
-        {/* Logo */}
+        {/* LOGO */}
         <div className="logo">
-          <a href="#Home">
+          <a href="#Home" onClick={(e) => handleNavigation(e, "Home")}>
             <span>A</span>mol
           </a>
         </div>
 
-        {/* Navigation */}
+        {/* NAV */}
         <ul className="nav">
 
           <li>
             <a
               href="#Home"
-              className={active === "Home" ? "active" : ""}
-              onClick={() => handleNavigation("Home")}
+              className={activeSection === "Home" ? "active" : ""}
+              onClick={(e) => handleNavigation(e, "Home")}
             >
               <i className="fa fa-home"></i> Home
             </a>
@@ -53,8 +55,8 @@ export default function Sidebar() {
           <li>
             <a
               href="#Profile"
-              className={active === "Profile" ? "active" : ""}
-              onClick={() => handleNavigation("Profile")}
+              className={activeSection === "Profile" ? "active" : ""}
+              onClick={(e) => handleNavigation(e, "Profile")}
             >
               <i className="fa fa-user"></i> Profile
             </a>
@@ -63,8 +65,8 @@ export default function Sidebar() {
           <li>
             <a
               href="#TechStack"
-              className={active === "TechStack" ? "active" : ""}
-              onClick={() => handleNavigation("TechStack")}
+              className={activeSection === "TechStack" ? "active" : ""}
+              onClick={(e) => handleNavigation(e, "TechStack")}
             >
               <i className="fa fa-code"></i> Tech Stack
             </a>
@@ -73,8 +75,8 @@ export default function Sidebar() {
           <li>
             <a
               href="#Services"
-              className={active === "Services" ? "active" : ""}
-              onClick={() => handleNavigation("Services")}
+              className={activeSection === "Services" ? "active" : ""}
+              onClick={(e) => handleNavigation(e, "Services")}
             >
               <i className="fa fa-list"></i> Services
             </a>
@@ -83,8 +85,8 @@ export default function Sidebar() {
           <li>
             <a
               href="#Projects"
-              className={active === "Projects" ? "active" : ""}
-              onClick={() => handleNavigation("Projects")}
+              className={activeSection === "Projects" ? "active" : ""}
+              onClick={(e) => handleNavigation(e, "Projects")}
             >
               <i className="fa fa-briefcase"></i> Projects
             </a>
@@ -93,8 +95,8 @@ export default function Sidebar() {
           <li>
             <a
               href="#Connect"
-              className={active === "Connect" ? "active" : ""}
-              onClick={() => handleNavigation("Connect")}
+              className={activeSection === "Connect" ? "active" : ""}
+              onClick={(e) => handleNavigation(e, "Connect")}
             >
               <i className="fa fa-comments"></i> Connect
             </a>
