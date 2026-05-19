@@ -7,43 +7,44 @@
 // ── ABSTRACTS ──────────────────────────────────────────────
 // Variables, mixins, functions, and breakpoints
 // No CSS output — just tools used by other partials
-@import "./abstracts/variables";    // CSS custom properties & SCSS variables
-@import "./abstracts/mixins";       // Reusable mixin definitions
-@import "./abstracts/functions";    // SCSS helper functions
-@import "./abstracts/breakpoints";  // Responsive breakpoint definitions
+@use "./abstracts/variables";    // CSS custom properties & SCSS variables
+@use "./abstracts/mixins";       // Reusable mixin definitions
+@use "./abstracts/functions";    // SCSS helper functions
+@use "./abstracts/breakpoints";  // Responsive breakpoint definitions
 
 
 // ── BASE ───────────────────────────────────────────────────
 // Global resets and foundational styles
-@import "./base/reset";             // Box-sizing, margin/padding reset
-@import "./base/global";            // Body, root variables, dark mode vars
-@import "./base/typography";        // Font family, sizes, line-heights
-@import "./base/animations";        // Keyframe animations
+@use "./base/reset";             // Box-sizing, margin/padding reset
+@use "./base/global";            // Body, root variables, dark mode vars
+@use "./base/typography";        // Font family, sizes, line-heights
+@use "./base/animations";        // Keyframe animations
 
 
 // ── LAYOUT ─────────────────────────────────────────────────
 // Structural layout — page skeleton
-@import "./layout/container";       // Max-width wrapper and padding
-@import "./layout/sidebar";         // Aside / sidebar positioning
-@import "./layout/navigation";      // Nav links and active states
+@use "./layout/container";       // Max-width wrapper and padding
+@use "./layout/section";         // Section visibility, titles, and spacing
+@use "./layout/sidebar";         // Aside / sidebar positioning
+@use "./layout/navigation";      // Nav links and active states
 
 
 // ── COMPONENTS ─────────────────────────────────────────────
 // Reusable UI components
-@import "./components/button";       // .btn styles and variants
-@import "./components/cards";        // Card layouts (skills, services, portfolio)
-@import "./components/theme-switcher"; // Style switcher panel and color dots
+@use "./components/button";       // .btn styles and variants
+@use "./components/cards";        // Card layouts (skills, services, portfolio)
+@use "./components/theme-switcher"; // Style switcher panel and color dots
 
 
 // ── PAGES ──────────────────────────────────────────────────
 // Page-specific styles scoped to each section
-@import "./pages/home";             // Hero / home section
-@import "./pages/profile";          // About, education, experience
-@import "./pages/projects";         // Portfolio grid and overlays
-@import "./pages/connect";          // Contact form and info items
+@use "./pages/home";             // Hero / home section
+@use "./pages/profile";          // About, education, experience
+@use "./pages/projects";         // Portfolio grid and overlays
+@use "./pages/connect";          // Contact form and info items
 
 
 // ── THEMES ─────────────────────────────────────────────────
 // Color theming — must come last so it can override base styles
-@import "./themes/colors";          // .color-1 to .color-5 skin color overrides
-@import "./themes/dark";            // body.dark variable overrides
+@use "./themes/colors";          // .color-1 to .color-5 skin color overrides
+@use "./themes/dark";            // body.dark variable overrides
