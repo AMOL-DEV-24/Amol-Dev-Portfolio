@@ -20,7 +20,11 @@
   }
 
   //? 2.================= PROFILE ================= *//
-    .profile .profile-text p {
+  .profile ,.profile-text h3{
+    margin-left: 15px;
+  }
+
+  .profile .profile-text p {
     font-size: 17px;
     line-height: 28px;
     padding: 15px;
@@ -32,6 +36,33 @@
 
   .profile .timeline .timeline-text {
     font-size: 17px;
+  } 
+
+  //? 3.================= TECH STACK ================= *//
+  .techstack .container .row .section-title h2{
+    top: 10px;
+    left: 20px;
+  }
+  .techstack .techstack-item-inner {
+    padding: 30px 20px;
+  }
+
+  .techstack .techstack-item h4 {
+    font-size: 20px;
+  }
+
+  .techstack .techstack-item p {
+    font-size: 15px;
+    line-height: 26px;
+  }
+
+  .techstack .techstack-item .icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .techstack .techstack-item .icon i {
+    font-size: 32px;
   } 
 }
 
@@ -65,6 +96,17 @@
    //? ================= PROFILE ================= */
   .profile .profile-text h3 {
     margin-left: 15px;
+  } 
+
+  //? ================= TECH STACK ================= */
+
+  .techstack .techstack-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+
+  .techstack .techstack-item-inner {
+    padding: 25px 18px;
   } 
 }
 
@@ -120,6 +162,24 @@
     flex: 0 0 100%;
     max-width: 100%;
   }
+
+  //? ================= TECH STACK ================= */
+  .techstack .techstack-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .techstack .techstack-item-inner {
+    padding: 25px 15px;
+  }
+
+  .techstack .techstack-item h4 {
+    font-size: 17px;
+  }
+
+  .techstack .techstack-item p {
+    font-size: 14px;
+  } 
 }
 
 /* =========================================================
@@ -195,6 +255,34 @@
   .profile .timeline .timeline-item {
     padding-left: 25px;
   }
+
+  //? ================= TECH STACK ================= */
+   .techstack .techstack-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .techstack .techstack-item-inner {
+    padding: 22px 14px;
+  }
+
+  .techstack .techstack-item .icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .techstack .techstack-item .icon i {
+    font-size: 26px;
+  }
+
+  .techstack .techstack-item h4 {
+    font-size: 16px;
+  }
+
+  .techstack .techstack-item p {
+    font-size: 13px;
+    line-height: 22px;
+  }
 }
 
 /* =========================================================
@@ -265,6 +353,35 @@
     font-size: 14px;
     line-height: 22px;
   }
+
+  //? ================= TECH STACK ================= */
+    .techstack .techstack-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .techstack .techstack-item-inner {
+    padding: 20px 15px;
+  }
+
+  .techstack .techstack-item .icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .techstack .techstack-item .icon i {
+    font-size: 24px;
+  }
+
+  .techstack .techstack-item h4 {
+    font-size: 16px;
+  }
+
+  .techstack .techstack-item p {
+    font-size: 13px;
+    line-height: 21px;
+  }
+ 
 }
 
 /* =========================================================
@@ -368,4 +485,34 @@
     width: 100%;
     margin-right: 0;
   }
+
+  //? ================= TECH STACK ================= */
+     .techstack .techstack-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .techstack .techstack-item-inner {
+    padding: 18px 12px;
+  }
+
+  .techstack .techstack-item .icon {
+    width: 45px;
+    height: 45px;
+
+    margin-bottom: 15px;
+  }
+
+  .techstack .techstack-item .icon i {
+    font-size: 22px;
+  }
+
+  .techstack .techstack-item h4 {
+    font-size: 15px;
+  }
+
+  .techstack .techstack-item p {
+    font-size: 12px;
+    line-height: 20px;
+  } 
 }
