@@ -1,0 +1,133 @@
+/* =========================================================
+   RESPONSIVE SYSTEM
+========================================================= */
+
+@use "../abstracts/breakpoints" as *;
+
+/* =========================================================
+   SECTION RESPONSIVE
+========================================================= */
+
+@include xl {
+
+  .section {
+    left: 0;
+    width: 100%;
+  }
+
+  .nav-toggler {
+    display: flex;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@include lg {
+
+  .section {
+    padding: 0 20px;
+  }
+
+  .sidebar .logo {
+    top: 40px;
+  }
+
+  .sidebar .nav li a {
+    font-size: 15px;
+  }
+
+  .home .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home .home-info,
+  .home .home-img {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .home .home-img {
+    margin-top: 40px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@include md {
+
+  .section {
+    padding: 0 15px;
+  }
+
+  .section-title h2 {
+    font-size: 32px;
+  }
+
+  .nav-toggler {
+    top: 15px;
+    left: 15px;
+  }
+
+  .sidebar {
+    width: 240px;
+    padding: 20px;
+  }
+
+  .home h3.hello {
+    font-size: 22px;
+  }
+
+  .home h3.hello span {
+    font-size: 36px;
+  }
+
+  .home h3.my-profession {
+    font-size: 22px;
+  }
+
+  .home p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@include sm {
+
+  .sidebar {
+    width: 220px;
+  }
+
+  .home h3.hello {
+    font-size: 20px;
+  }
+
+  .home h3.my-profession {
+    font-size: 18px;
+  }
+
+  .home p {
+    font-size: 14px;
+  }
+
+  .home .home-img img {
+    width: 100%;
+    height: auto;
+  }
+}
