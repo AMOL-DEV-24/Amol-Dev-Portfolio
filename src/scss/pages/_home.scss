@@ -1,15 +1,18 @@
+/* =========================================================
+   HOME SECTION (BASE STYLES)
+========================================================= */
+
 .home {
   min-height: 100vh;
   color: var(--text-black-900);
 
-  // Row Layout
   .row {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
   }
 
-  // Left Content
+  /* ===================== LEFT CONTENT ===================== */
   .home-info {
     flex: 0 0 60%;
     max-width: 60%;
@@ -24,12 +27,7 @@
       font-size: 50px;
       font-weight: 700;
       color: var(--skin-color);
-      background: linear-gradient(
-        45deg,
-        var(--skin-color),
-        #ff6ec4
-      );
-
+      background: linear-gradient(45deg, var(--skin-color), #ff6ec4);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -50,7 +48,7 @@
     color: var(--text-black-700);
   }
 
-  // Right Image
+  /* ===================== RIGHT IMAGE ===================== */
   .home-img {
     flex: 0 0 40%;
     max-width: 40%;
@@ -62,22 +60,6 @@
       height: 400px;
       border-radius: 5px;
       animation: imgAnim 4s linear infinite;
-    }
-  }
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 991px) {
-  .home {
-    .home-info,
-    .home-img {
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
-
-    .home-img {
-      margin-top: 40px;
     }
   }
 }
