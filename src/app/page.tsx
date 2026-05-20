@@ -14,64 +14,109 @@ import Connect from "@/pages/Connect/Connect";
 
 export default function Main() {
 
+  /* ================= STATE ================= */
   const [activeSection, setActiveSection] = useState("Home");
   const [prevSection, setPrevSection] = useState<string | null>(null);
-  const [firstLoad, setFirstLoad] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  /* ================= NAVIGATION ================= */
   const handleNavigate = (section: string) => {
-    if (section === activeSection) return;
 
+    // Prevent re-render on same page click
+    if (section === activeSection) {
+      setSidebarOpen(false);
+      return;
+    }
+
+    // Save previous section for animation
     setPrevSection(activeSection);
+
+    // Set new active section
     setActiveSection(section);
-    setFirstLoad(false);
+
+    // Close sidebar automatically on mobile
+    setSidebarOpen(false);
   };
 
+  /* ================= SECTION CLASSES ================= */
   const sectionClass = (name: string, extra: string) => {
+
+    // Current active page
     if (name === activeSection) {
       return `${extra} section active`;
     }
 
-    if (name === prevSection && !firstLoad) {
+    // Previous page
+    if (name === prevSection) {
       return `${extra} section back-section`;
     }
 
+    // Hidden pages
     return `${extra} section`;
   };
 
   return (
-    <div className="main-container">
+    <main className="main-container">
 
+      {/* ================= SIDEBAR ================= */}
       <Sidebar
         activeSection={activeSection}
         onNavigate={handleNavigate}
+        open={sidebarOpen}
+        setOpen={setSidebarOpen}
       />
 
+      {/* ================= THEME SWITCHER ================= */}
       <ThemeSwitcher />
 
-      <section className={sectionClass("Home", "home")} id="Home">
+      {/* ================= HOME ================= */}
+      <section
+        className={sectionClass("Home", "home")}
+        id="Home"
+      >
         <Home />
       </section>
 
-      <section className={sectionClass("Profile", "profile")} id="Profile">
+      {/* ================= PROFILE ================= */}
+      <section
+        className={sectionClass("Profile", "profile")}
+        id="Profile"
+      >
         <Profile />
       </section>
 
-      <section className={sectionClass("TechStack", "techstack")} id="TechStack">
+      {/* ================= TECH STACK ================= */}
+      <section
+        className={sectionClass("TechStack", "techstack")}
+        id="TechStack"
+      >
         <TechStack />
       </section>
 
-      <section className={sectionClass("Services", "services")} id="Services">
+      {/* ================= SERVICES ================= */}
+      <section
+        className={sectionClass("Services", "services")}
+        id="Services"
+      >
         <Services />
       </section>
 
-      <section className={sectionClass("Projects", "projects")} id="Projects">
+      {/* ================= PROJECTS ================= */}
+      <section
+        className={sectionClass("Projects", "projects")}
+        id="Projects"
+      >
         <Projects />
       </section>
 
-      <section className={sectionClass("Connect", "connect")} id="Connect">
+      {/* ================= CONNECT ================= */}
+      <section
+        className={sectionClass("Connect", "connect")}
+        id="Connect"
+      >
         <Connect />
       </section>
 
-    </div>
+    </main>
   );
 }
