@@ -25,12 +25,16 @@
   transform: translateX(0);
 }
 
-/* ================= LOGO ================= */
+/* =========================================================
+   LOGO
+========================================================= */
 
 .sidebar .logo {
   position: absolute;
   top: 50px;
+
   font-size: 30px;
+  text-transform: capitalize;
 }
 
 .sidebar .logo a {
@@ -45,12 +49,50 @@
   color: var(--text-black-900);
 }
 
+/* LOGO LETTER */
+
 .sidebar .logo a span {
   font-size: 40px;
-  font-family: cursive;
+  font-family: "Clicker Script", cursive;
 }
 
-/* ================= NAVIGATION ================= */
+/* LEFT BOTTOM BORDER */
+
+.sidebar .logo a::before {
+  content: "";
+
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  left: -10px;
+  bottom: -5px;
+
+  border-left: 5px solid var(--skin-color);
+  border-bottom: 5px solid var(--skin-color);
+}
+
+/* RIGHT TOP BORDER */
+
+.sidebar .logo a::after {
+  content: "";
+
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  top: 0;
+  right: -10px;
+
+  border-top: 5px solid var(--skin-color);
+  border-right: 5px solid var(--skin-color);
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .sidebar ul {
   margin: 0;
@@ -64,6 +106,7 @@
 }
 
 .sidebar .nav li {
+  display: block;
   margin-bottom: 20px;
 }
 
@@ -82,11 +125,21 @@
   border-bottom: 1px solid var(--bg-black-50);
 }
 
+/* ACTIVE LINK */
+
 .sidebar .nav li a.active {
   color: var(--skin-color);
 }
 
-/* ================= NAV TOGGLER ================= */
+/* ICON SPACING */
+
+.sidebar .nav li a i {
+  margin-right: 15px;
+}
+
+/* =========================================================
+   NAV TOGGLER
+========================================================= */
 
 .nav-toggler {
   position: fixed;
@@ -109,7 +162,9 @@
   background: var(--bg-black-100);
 }
 
-/* HAMBURGER */
+/* =========================================================
+   HAMBURGER
+========================================================= */
 
 .nav-toggler span {
   position: relative;
@@ -143,7 +198,9 @@
   top: 6px;
 }
 
-/* ACTIVE */
+/* =========================================================
+   ACTIVE TOGGLER
+========================================================= */
 
 .nav-toggler.open span {
   background: transparent;
