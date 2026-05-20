@@ -7,41 +7,48 @@
 // ── ABSTRACTS ──────────────────────────────────────────────
 // Variables, mixins, functions, and breakpoints
 // No CSS output — just tools used by other partials
-@use "./abstracts/variables";    // CSS custom properties & SCSS variables
-@use "./abstracts/mixins";       // Reusable mixin definitions
-@use "./abstracts/functions";    // SCSS helper functions
 @use "./abstracts/breakpoints";  // Responsive breakpoint definitions
+@use "./abstracts/functions";    // SCSS helper functions
+@use "./abstracts/mixins";       // Reusable mixin definitions
+@use "./abstracts/variables";    // CSS custom properties & SCSS variables
 
 
 // ── BASE ───────────────────────────────────────────────────
 // Global resets and foundational styles
-@use "./base/reset";             // Box-sizing, margin/padding reset
-@use "./base/global";            // Body, root variables, dark mode vars
-@use "./base/typography";        // Font family, sizes, line-heights
 @use "./base/animations";        // Keyframe animations
-
-
-// ── LAYOUT ─────────────────────────────────────────────────
-// Structural layout — page skeleton
-@use "./layout/container";       // Max-width wrapper and padding
-@use "./layout/section";         // Section visibility, titles, and spacing
-@use "./layout/sidebar";         // Aside / sidebar positioning
-@use "./layout/navigation";      // Nav links and active states
-
+@use "./base//fonts";             // Font-face declarations
+@use "./base/global";            // Body, root variables, dark mode vars
+@use "./base/reset";             // Box-sizing, margin/padding reset
+@use "./base/typography";        // Font family, sizes, line-heights
+@use "./base/utilities";          // Reusable helper classes (spacing, flex, text)
 
 // ── COMPONENTS ─────────────────────────────────────────────
 // Reusable UI components
 @use "./components/button";       // .btn styles and variants
 @use "./components/cards";        // Card layouts (skills, services, portfolio)
+@use "./components/loader";       // Page loader animation
 @use "./components/theme-switcher"; // Style switcher panel and color dots
+
+// ── LAYOUT ─────────────────────────────────────────────────
+// Structural layout — page skeleton
+@use "./layout/container";       // Max-width wrapper and padding
+@use "./layout/navigation";      // Nav links and active states
+@use "./layout/section";         // Section visibility, titles, and spacing
+@use "./layout/sidebar";         // Aside / sidebar positioning
+
+
 
 
 // ── PAGES ──────────────────────────────────────────────────
 // Page-specific styles scoped to each section
 @use "./pages/home";             // Hero / home section
 @use "./pages/profile";          // About, education, experience
+@use "./pages/techstack";        // Skills grid and progress bars
 @use "./pages/projects";         // Portfolio grid and overlays
 @use "./pages/connect";          // Contact form and info items
+
+// ── RESPONSIVE ──────────────────────────────────────────────────
+@use "./responsive/responsive";   // Media queries for tablet and mobile breakpoints
 
 
 // ── THEMES ─────────────────────────────────────────────────
