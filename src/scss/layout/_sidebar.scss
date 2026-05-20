@@ -1,78 +1,62 @@
 /* =========================================================
-   SIDEBAR COMPONENT
-   - Fixed left navigation
-   - Logo styling
-   - Nav links
-   - Mobile toggler
+   SIDEBAR
 ========================================================= */
 
 .sidebar {
   width: 270px;
-  height: 100%;
+  height: 100vh;
+
   position: fixed;
   top: 0;
   left: 0;
+
   padding: 30px;
+
+  background: var(--bg-black-100);
+  border-right: 1px solid var(--bg-black-50);
+
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--bg-black-100);
-  border-right: 1px solid var(--bg-black-50);
-  z-index: 10;
-  transition: 0.3s ease;
+
+  z-index: 1000;
+
+  transition: transform 0.3s ease;
+  transform: translateX(0);
 }
 
-/* ===================== LOGO ===================== */
+/* ================= LOGO ================= */
+
 .sidebar .logo {
   position: absolute;
   top: 50px;
   font-size: 30px;
-  text-transform: capitalize;
 }
 
 .sidebar .logo a {
+  position: relative;
+
+  padding: 15px 20px;
+
   font-size: 30px;
   font-weight: 700;
-  color: var(--text-black-900);
   letter-spacing: 5px;
-  padding: 15px 20px;
-  position: relative;
+
+  color: var(--text-black-900);
 }
 
 .sidebar .logo a span {
-  font-family: var(--font-clicker), cursive;
   font-size: 40px;
+  font-family: cursive;
 }
 
-/* decorative corners */
-.sidebar .logo a::before,
-.sidebar .logo a::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 5px solid var(--skin-color);
-}
+/* ================= NAVIGATION ================= */
 
-.sidebar .logo a::before {
-  border-top: 0;
-  border-right: 0;
-  bottom: -5px;
-  left: -11px;
-}
-
-.sidebar .logo a::after {
-  border-bottom: 0;
-  border-left: 0;
-  top: 5px;
-  right: -15px;
-}
-
-/* ===================== NAV ===================== */
 .sidebar ul {
-  list-style: none;
   margin: 0;
   padding: 0;
+
+  list-style: none;
 }
 
 .sidebar .nav {
@@ -85,82 +69,92 @@
 
 .sidebar .nav li a {
   display: block;
+
   padding: 5px 15px;
+
   font-size: 16px;
   font-weight: 600;
-  color: var(--text-black-900);
-  border-bottom: 1px solid var(--bg-black-50);
-  text-decoration: none;
-}
 
-.sidebar .nav li a i {
-  margin-right: 15px;
+  text-decoration: none;
+
+  color: var(--text-black-900);
+
+  border-bottom: 1px solid var(--bg-black-50);
 }
 
 .sidebar .nav li a.active {
   color: var(--skin-color);
 }
 
-/* ===================== TOGGLER ===================== */
-.sidebar .nav-toggler {
-  display: none;
+/* ================= NAV TOGGLER ================= */
+
+.nav-toggler {
   position: fixed;
-  left: 300px;
+
   top: 20px;
+  left: 20px;
+
   width: 45px;
   height: 40px;
-  border: 1px solid var(--bg-black-50);
-  border-radius: 5px;
-  background: var(--bg-black-100);
-  cursor: pointer;
-  display: flex;
+
+  display: none;
   align-items: center;
   justify-content: center;
-  transition: 0.3s ease;
+
+  cursor: pointer;
+
+  z-index: 2000;
+
+  border: 1px solid var(--bg-black-50);
+  background: var(--bg-black-100);
 }
 
-.sidebar .nav-toggler span {
-  width: 18px;
-  height: 2px;
-  background: var(--skin-color);
+/* HAMBURGER */
+
+.nav-toggler span {
   position: relative;
-  display: inline-block;
-}
 
-.sidebar .nav-toggler span::before,
-.sidebar .nav-toggler span::after {
-  content: "";
-  position: absolute;
+  display: inline-block;
+
   width: 18px;
   height: 2px;
+
   background: var(--skin-color);
-  left: 0;
 }
 
-.sidebar .nav-toggler span::before {
+.nav-toggler span::before,
+.nav-toggler span::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+
+  width: 18px;
+  height: 2px;
+
+  background: var(--skin-color);
+}
+
+.nav-toggler span::before {
   top: -6px;
 }
 
-.sidebar .nav-toggler span::after {
+.nav-toggler span::after {
   top: 6px;
 }
 
-/* OPEN STATE */
-.sidebar .nav-toggler.open span {
+/* ACTIVE */
+
+.nav-toggler.open span {
   background: transparent;
 }
 
-.sidebar .nav-toggler.open span::before {
+.nav-toggler.open span::before {
+  top: 0;
   transform: rotate(45deg);
-  top: 0;
 }
 
-.sidebar .nav-toggler.open span::after {
+.nav-toggler.open span::after {
+  top: 0;
   transform: rotate(-45deg);
-  top: 0;
-}
-
-/* sidebar open state */
-.sidebar.open {
-  left: 0;
 }

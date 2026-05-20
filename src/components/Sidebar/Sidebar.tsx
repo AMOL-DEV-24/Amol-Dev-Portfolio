@@ -1,109 +1,143 @@
 "use client";
 
-import { useState } from "react";
-
 interface Props {
   activeSection: string;
   onNavigate: (section: string) => void;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function Sidebar({ activeSection, onNavigate }: Props) {
-  const [open, setOpen] = useState(false);
+export default function Sidebar({
+  activeSection,
+  onNavigate,
+  open,
+  setOpen,
+}: Props) {
 
+  /* ================= NAVIGATION ================= */
   const handleNavigation = (
     e: React.MouseEvent<HTMLAnchorElement>,
     section: string
   ) => {
+
     e.preventDefault();
+
+    // Navigate to section
     onNavigate(section);
+
+    // Close sidebar after clicking nav item
     setOpen(false);
+  };
+
+  /* ================= TOGGLE SIDEBAR ================= */
+  const toggleSidebar = () => {
+    setOpen((prev) => !prev);
   };
 
   return (
     <>
-      {/* NAV TOGGLER */}
+      {/* =====================================================
+          NAV TOGGLER
+      ===================================================== */}
       <div
         className={`nav-toggler ${open ? "open" : ""}`}
-        onClick={() => setOpen(!open)}
+        onClick={toggleSidebar}
       >
         <span></span>
       </div>
 
-      {/* SIDEBAR */}
-      <div className={`sidebar ${open ? "open" : ""}`}>
+      {/* =====================================================
+          SIDEBAR
+      ===================================================== */}
+      <aside className={`sidebar ${open ? "open" : ""}`}>
 
-        {/* LOGO */}
+        {/* ================= LOGO ================= */}
         <div className="logo">
-          <a href="#Home" onClick={(e) => handleNavigation(e, "Home")}>
+          <a
+            href="#Home"
+            onClick={(e) => handleNavigation(e, "Home")}
+          >
             <span>A</span>mol
           </a>
         </div>
 
-        {/* NAV */}
+        {/* ================= NAVIGATION ================= */}
         <ul className="nav">
 
+          {/* HOME */}
           <li>
             <a
               href="#Home"
               className={activeSection === "Home" ? "active" : ""}
               onClick={(e) => handleNavigation(e, "Home")}
             >
-              <i className="fa fa-home"></i> Home
+              <i className="fa fa-home"></i>
+              Home
             </a>
           </li>
 
+          {/* PROFILE */}
           <li>
             <a
               href="#Profile"
               className={activeSection === "Profile" ? "active" : ""}
               onClick={(e) => handleNavigation(e, "Profile")}
             >
-              <i className="fa fa-user"></i> Profile
+              <i className="fa fa-user"></i>
+              Profile
             </a>
           </li>
 
+          {/* TECH STACK */}
           <li>
             <a
               href="#TechStack"
               className={activeSection === "TechStack" ? "active" : ""}
               onClick={(e) => handleNavigation(e, "TechStack")}
             >
-              <i className="fa fa-code"></i> Tech Stack
+              <i className="fa fa-code"></i>
+              Tech Stack
             </a>
           </li>
 
+          {/* SERVICES */}
           <li>
             <a
               href="#Services"
               className={activeSection === "Services" ? "active" : ""}
               onClick={(e) => handleNavigation(e, "Services")}
             >
-              <i className="fa fa-list"></i> Services
+              <i className="fa fa-list"></i>
+              Services
             </a>
           </li>
 
+          {/* PROJECTS */}
           <li>
             <a
               href="#Projects"
               className={activeSection === "Projects" ? "active" : ""}
               onClick={(e) => handleNavigation(e, "Projects")}
             >
-              <i className="fa fa-briefcase"></i> Projects
+              <i className="fa fa-briefcase"></i>
+              Projects
             </a>
           </li>
 
+          {/* CONNECT */}
           <li>
             <a
               href="#Connect"
               className={activeSection === "Connect" ? "active" : ""}
               onClick={(e) => handleNavigation(e, "Connect")}
             >
-              <i className="fa fa-comments"></i> Connect
+              <i className="fa fa-comments"></i>
+              Connect
             </a>
           </li>
 
         </ul>
-      </div>
+      </aside>
     </>
   );
 }

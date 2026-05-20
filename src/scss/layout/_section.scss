@@ -1,91 +1,114 @@
+/* =========================================================
+   SECTION LAYOUT
+========================================================= */
+
 .section {
-  background: var(--bg-black-900);
-  min-height: 100vh;
+  position: fixed;
+
+  top: 0;
+  left: 270px;
+  right: 0;
+  bottom: 0;
+
   width: calc(100% - 270px);
+  min-height: 100vh;
 
   padding: 0 30px;
-
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 270px;
 
   overflow-y: auto;
   overflow-x: hidden;
 
-  /* ❌ REMOVE visibility (causes flash) */
-  opacity: 0;
+  display: none;
 
-  transform: translate3d(100%, 0, 0);
+  background: var(--bg-black-900);
 
-  transition: transform 0.6s ease, opacity 0.3s ease;
-
-  z-index: 0;
-
-  /* IMPORTANT: prevents white background bleed */
-  will-change: transform;
+  transition: all 0.3s ease;
 }
 
-/* ACTIVE PAGE */
+/* ACTIVE SECTION */
+
 .section.active {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
+  display: block;
   z-index: 2;
+
+  animation: slideSection 0.5s ease;
 }
 
-/* OLD PAGE SLIDE OUT */
+/* PREVIOUS SECTION */
+
 .section.back-section {
-  opacity: 1;
-  transform: translate3d(-100%, 0, 0);
   z-index: 1;
 }
 
-/* SIDEBAR OPEN */
-.section.open {
-  left: 0;
-  width: 100%;
-}
+/* =========================================================
+   CONTAINER
+========================================================= */
 
-/* CONTAINER */
 .section .container {
-  max-width: 1100px;
   width: 100%;
+  max-width: 1100px;
+
   margin: auto;
+
   padding-top: 60px;
   padding-bottom: 70px;
 }
 
-/* TITLE */
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
 .section-title {
   flex: 0 0 100%;
   max-width: 100%;
+
   margin-bottom: 60px;
 }
 
 .section-title h2 {
+  position: relative;
+
   font-size: 40px;
   font-weight: 700;
+
   color: var(--text-black-900);
-  position: relative;
 }
 
-/* underline */
+/* UNDERLINE */
+
 .section-title h2::before,
 .section-title h2::after {
   content: "";
+
   position: absolute;
   left: 0;
+
   height: 4px;
+
   background: var(--skin-color);
 }
 
 .section-title h2::before {
-  width: 50px;
   top: 100%;
+  width: 50px;
 }
 
 .section-title h2::after {
-  width: 25px;
   top: 100%;
+  width: 25px;
   margin-top: 8px;
+}
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes slideSection {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
 }
