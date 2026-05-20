@@ -1,23 +1,52 @@
 /* =========================================================
    RESPONSIVE SYSTEM
+   Centralized responsive styles for entire portfolio
 ========================================================= */
 
 @use "../abstracts/breakpoints" as *;
 
-/* =========================================================
-   SECTION RESPONSIVE
-========================================================= */
+//! ================================== XXL DEVICES (≤1400px) Large monitors ============================================== */
+
+@include xxl {
+
+  //? 1.================= SECTION ================= */ 
+  .section .container {
+    max-width: 1200px;
+  }
+
+  //? 2.================= HOME ================= *//
+  .home .home-img img {
+    height: 420px;
+  }
+
+  //? 2.================= PROFILE ================= *//
+    .profile .profile-text p {
+    font-size: 17px;
+    line-height: 28px;
+    padding: 15px;
+  }
+
+  .profile .timeline {
+    padding: 35px 25px;
+  }
+
+  .profile .timeline .timeline-text {
+    font-size: 17px;
+  } 
+}
+
+//! =========================== XL DEVICES (≤1200px) Desktop / Small desktop ======================================== */
 
 @include xl {
+
+  //? ================= SECTION ================= */
 
   .section {
     left: 0;
     width: 100%;
   }
 
-  .nav-toggler {
-    display: flex;
-  }
+  //? ================= SIDEBAR ================= */
 
   .sidebar {
     transform: translateX(-100%);
@@ -26,17 +55,33 @@
   .sidebar.open {
     transform: translateX(0);
   }
+
+  //?  ================= NAV TOGGLER ================= */
+
+  .nav-toggler {
+    display: flex;
+  }
+
+   //? ================= PROFILE ================= */
+  .profile .profile-text h3 {
+    margin-left: 15px;
+  } 
 }
 
 /* =========================================================
-   TABLET
+   LG DEVICES (≤992px)
+   Laptop / Tablet landscape
 ========================================================= */
 
 @include lg {
 
+  //? ================= SECTION ================= */
+
   .section {
     padding: 0 20px;
   }
+
+  //? ================= SIDEBAR ================= */
 
   .sidebar .logo {
     top: 40px;
@@ -45,6 +90,8 @@
   .sidebar .nav li a {
     font-size: 15px;
   }
+
+  //? ================= HOME ================= */
 
   .home .row {
     flex-direction: column;
@@ -60,13 +107,29 @@
   .home .home-img {
     margin-top: 40px;
   }
+
+  .home .home-img img {
+    height: 350px;
+  }
+
+  //? ================= PROFILE ================= */
+
+  .profile .personal-info,
+  .profile .education,
+  .profile .experience {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 /* =========================================================
-   MOBILE
+   MD DEVICES (≤768px)
+   Tablets / Mobile landscape
 ========================================================= */
 
 @include md {
+
+  //? ================= SECTION ================= */
 
   .section {
     padding: 0 15px;
@@ -76,15 +139,29 @@
     font-size: 32px;
   }
 
+  //?  ================= NAV TOGGLER ================= */
+
   .nav-toggler {
     top: 15px;
     left: 15px;
   }
 
+  //? ================= SIDEBAR ================= */
+
   .sidebar {
     width: 240px;
     padding: 20px;
   }
+
+  .sidebar .logo a {
+    font-size: 26px;
+  }
+
+  .sidebar .logo a span {
+    font-size: 34px;
+  }
+
+  //? ================= HOME ================= */
 
   .home h3.hello {
     font-size: 22px;
@@ -102,20 +179,50 @@
     font-size: 16px;
     margin-bottom: 30px;
   }
+
+  //? ================= PROFILE ================= */
+
+  .profile .profile-text h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .profile .personal-info .info-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .profile .timeline .timeline-item {
+    padding-left: 25px;
+  }
 }
 
 /* =========================================================
-   SMALL MOBILE
+   SM DEVICES (≤576px)
+   Mobile devices
 ========================================================= */
 
 @include sm {
 
+  //? ================= SIDEBAR ================= */
+
   .sidebar {
     width: 220px;
+    padding: 15px;
   }
+
+  .sidebar .logo {
+    top: 35px;
+  }
+
+  //? ================= HOME ================= */
 
   .home h3.hello {
     font-size: 20px;
+  }
+
+  .home h3.hello span {
+    font-size: 30px;
   }
 
   .home h3.my-profession {
@@ -124,10 +231,141 @@
 
   .home p {
     font-size: 14px;
+    line-height: 24px;
   }
 
   .home .home-img img {
     width: 100%;
     height: auto;
+  }
+
+  //? ================= PROFILE ================= */
+
+  .profile .profile-text h3 {
+    font-size: 20px;
+  }
+
+  .profile .profile-text p {
+    font-size: 14px;
+  }
+
+  .profile h3.title {
+    font-size: 20px;
+  }
+
+  .profile .timeline {
+    padding: 20px 15px;
+  }
+
+  .profile .timeline .timeline-title {
+    font-size: 16px;
+  }
+
+  .profile .timeline .timeline-text {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+/* =========================================================
+   XS DEVICES (≤480px)
+   Small mobile devices
+========================================================= */
+
+@include xs {
+
+  //? ================= SECTION ================= */
+
+  .section {
+    padding: 0 10px;
+  }
+
+  .section-title h2 {
+    font-size: 26px;
+  }
+
+  //? ================= NAV TOGGLER ================= */
+
+  .nav-toggler {
+    width: 40px;
+    height: 38px;
+  }
+
+  //? ================= SIDEBAR ================= */
+
+  .sidebar {
+    width: 200px;
+    padding: 12px;
+  }
+
+  .sidebar .logo a {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .sidebar .logo a span {
+    font-size: 28px;
+  }
+
+  .sidebar .nav li a {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  //? ================= HOME ================= */
+
+  .home h3.hello {
+    font-size: 18px;
+  }
+
+  .home h3.hello span {
+    font-size: 26px;
+  }
+
+  .home h3.my-profession {
+    font-size: 16px;
+  }
+
+  .home p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .home .btn {
+    text-align: center;
+  }
+
+  //? ================= PROFILE ================= */
+
+  .profile .profile-text h3 {
+    font-size: 18px;
+  }
+
+  .profile .profile-text p {
+    font-size: 13px;
+    line-height: 22px;
+    padding: 20px;
+  }
+
+  .profile .personal-info .info-item p {
+    font-size: 14px;
+  }
+
+  .profile .timeline {
+    padding: 15px 10px;
+  }
+
+  .profile .timeline .timeline-title {
+    font-size: 15px;
+  }
+
+  .profile .timeline .timeline-text {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .profile .personal-info .buttons .btn {
+    width: 100%;
+    margin-right: 0;
   }
 }
