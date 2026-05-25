@@ -24,7 +24,7 @@
     height: 420px;
   }
 
-  /* ================= PROFILE ================= */
+  //? ================= PROFILE ================= */
 
   .profile,
   .profile .profile-text h3 {
@@ -74,7 +74,7 @@
     font-size: 32px;
   }
 
-  /* ================= SERVICES ================= */
+  //? ================= SERVICES ================= */
 
   .services .services-item-inner {
     padding: 35px 20px;
@@ -99,7 +99,7 @@
     line-height: 28px;
   }
 
-  /* ================= PROJECTS ================= */
+  //? ================= PROJECTS ================= */
 
   .projects {
 
@@ -131,6 +131,45 @@
     .button-2,
     .view-all {
       font-size: 15px;
+    }
+  }
+
+  //? ================= CONNECT ================= 
+  .connect {
+
+    .connect-title {
+      font-size: 24px;
+    }
+
+    .connect-sub-title {
+      font-size: 14px;
+      margin-bottom: 50px;
+    }
+
+    .connect-info-item {
+
+      .icon svg {
+        font-size: 26px;
+      }
+
+      h4 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+
+    .connect-form {
+
+      .form-item .form-control {
+        font-size: 15px;
+      }
+
+      textarea.form-control {
+        height: 140px;
+      }
     }
   }
 }
@@ -224,6 +263,29 @@
       p {
         font-size: 14px;
         line-height: 24px;
+      }
+    }
+  }
+
+  /* ================= CONNECT ================= */
+  /* ================= CONNECT ================= */
+
+  .connect {
+
+    .connect-info-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+      margin-bottom: 40px;
+    }
+
+    .connect-form {
+
+      .form-item {
+        margin-top: 25px;
+      }
+
+      .form-control {
+        font-size: 15px;
       }
     }
   }
@@ -365,6 +427,58 @@
       p {
         font-size: 13px;
         line-height: 22px;
+      }
+    }
+  }
+
+  /* ================= CONNECT ================= */
+  .connect {
+
+    .connect-title {
+      font-size: 22px;
+    }
+
+    .connect-sub-title {
+      font-size: 14px;
+      margin-bottom: 45px;
+    }
+
+    .connect-info-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+
+      h4 {
+        font-size: 17px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .icon svg {
+        font-size: 24px;
+      }
+    }
+
+    .connect-form {
+
+      .col-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      .form-item .form-control {
+        height: 48px;
+        font-size: 14px;
+      }
+
+      textarea.form-control {
+        height: 130px;
+      }
+
+      .btn {
+        height: 48px;
+        padding: 0 40px;
       }
     }
   }
@@ -554,6 +668,60 @@
       }
     }
   }
+
+  /* ================= CONNECT ================= */
+   .connect {
+
+    .connect-title {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .connect-sub-title {
+      font-size: 13px;
+      margin-bottom: 40px;
+    }
+
+    .connect-info-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-bottom: 35px;
+
+      h4 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 13px;
+        line-height: 22px;
+      }
+
+      .icon svg {
+        font-size: 22px;
+      }
+    }
+
+    .connect-form {
+
+      .form-item {
+        margin-top: 20px;
+      }
+
+      .form-item .form-control {
+        height: 46px;
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+
+      textarea.form-control {
+        height: 120px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
 }
 
 /* =========================================================
@@ -724,6 +892,54 @@
     .view-all {
       height: 42px;
       font-size: 13px;
+    }
+  }
+
+   /* ================= CONNECT ================= */
+
+  .connect {
+
+    .connect-title {
+      font-size: 18px;
+    }
+
+    .connect-sub-title {
+      font-size: 12px;
+      margin-bottom: 35px;
+    }
+
+    .connect-info-item {
+
+      .icon svg {
+        font-size: 20px;
+      }
+
+      h4 {
+        font-size: 15px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+
+    .connect-form {
+
+      .form-item .form-control {
+        height: 44px;
+        border-radius: 22px;
+
+        font-size: 13px;
+      }
+
+      textarea.form-control {
+        height: 110px;
+      }
+
+      .btn {
+        height: 44px;
+        font-size: 13px;
+      }
     }
   }
 }
@@ -932,6 +1148,64 @@
       height: 40px;
       font-size: 12px;
       padding: 10px 15px;
+    }
+  }
+
+  /* ================= CONNECT ================= */
+   .connect {
+
+    .connect-title {
+      font-size: 17px;
+    }
+
+    .connect-sub-title {
+      font-size: 11px;
+      margin-bottom: 30px;
+    }
+
+    .connect-info-item {
+      margin-bottom: 30px;
+
+      .icon svg {
+        font-size: 18px;
+      }
+
+      h4 {
+        font-size: 14px;
+        margin: 12px 0 5px;
+      }
+
+      p {
+        font-size: 11px;
+        line-height: 20px;
+      }
+    }
+
+    .connect-form {
+
+      .form-item {
+        margin-top: 18px;
+      }
+
+      .form-item .form-control {
+        height: 42px;
+
+        padding: 10px 18px;
+
+        font-size: 12px;
+      }
+
+      textarea.form-control {
+        height: 100px;
+      }
+
+      .btn {
+        height: 42px;
+
+        font-size: 12px;
+
+        padding: 0 25px;
+      }
     }
   }
 }
