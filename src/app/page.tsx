@@ -5,12 +5,13 @@ import { useState } from "react";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher";
 
-import Home from "@/pages/Home/Home";
-import Profile from "@/pages/Profile/Profile";
-import TechStack from "@/pages/TechStack/TechStack";
-import Services from "@/pages/Services/Services";
-import Projects from "@/pages/Projects/Projects";
-import Connect from "@/pages/Connect/Connect";
+import Home from "@/pages/Home/index.Home";
+import Profile from "@/pages/Profile/index.Profile";
+import TechStack from "@/pages/TechStack/index.TechStack";
+import Services from "@/pages/Services/index.Services";
+import Projects from "@/pages/Projects/index.Projects";
+import AllProjects from "@/pages/Projects/AllProjects";
+import Connect from "@/pages/Connect/index.Connect";
 
 export default function Main() {
 
@@ -106,7 +107,19 @@ export default function Main() {
         className={sectionClass("Projects", "projects")}
         id="Projects"
       >
-        <Projects />
+        <Projects
+          onViewAll={() => handleNavigate("AllProjects")}
+        />
+      </section>
+
+      {/* ================= ALL PROJECTS ================= */}
+      <section
+        className={sectionClass("AllProjects", "projects")}
+        id="AllProjects"
+      >
+        <AllProjects
+          onBack={() => handleNavigate("Projects")}
+        />
       </section>
 
       {/* ================= CONNECT ================= */}
