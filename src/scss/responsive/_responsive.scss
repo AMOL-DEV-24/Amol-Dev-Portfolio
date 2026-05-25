@@ -5,22 +5,29 @@
 
 @use "../abstracts/breakpoints" as *;
 
-//! ================================== XXL DEVICES (≤1400px) Large monitors ============================================== */
+/* =========================================================
+   XXL DEVICES (≤1400px)
+   Large monitors
+========================================================= */
 
 @include xxl {
 
-  //? 1.================= SECTION ================= */ 
+  /* ================= SECTION ================= */
+
   .section .container {
     max-width: 1200px;
   }
 
-  //? 2.================= HOME ================= *//
+  /* ================= HOME ================= */
+
   .home .home-img img {
     height: 420px;
   }
 
-  //? 2.================= PROFILE ================= *//
-  .profile ,.profile-text h3{
+  /* ================= PROFILE ================= */
+
+  .profile,
+  .profile .profile-text h3 {
     margin-left: 15px;
   }
 
@@ -36,13 +43,15 @@
 
   .profile .timeline .timeline-text {
     font-size: 17px;
-  } 
+  }
 
-  //? 3.================= TECH STACK ================= *//
-  .techstack .container .row .section-title h2{
+  /* ================= TECH STACK ================= */
+
+  .techstack .container .row .section-title h2 {
     top: 10px;
     left: 20px;
   }
+
   .techstack .techstack-item-inner {
     padding: 30px 20px;
   }
@@ -63,21 +72,84 @@
 
   .techstack .techstack-item .icon i {
     font-size: 32px;
-  } 
+  }
+
+  /* ================= SERVICES ================= */
+
+  .services .services-item-inner {
+    padding: 35px 20px;
+  }
+
+  .services .services-item .icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .services .services-item .icon .fa {
+    font-size: 42px;
+    line-height: 65px;
+  }
+
+  .services .services-item h4 {
+    font-size: 20px;
+  }
+
+  .services .services-item p {
+    font-size: 17px;
+    line-height: 28px;
+  }
+
+  /* ================= PROJECTS ================= */
+
+  .projects {
+
+    .projects-heading h2 {
+      font-size: 30px;
+    }
+
+    .projects-item-inner {
+      border-width: 6px;
+    }
+
+    .projects-img {
+      height: 260px;
+    }
+
+    .overlay {
+
+      h1 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 25px;
+      }
+    }
+
+    .button-1,
+    .button-2,
+    .view-all {
+      font-size: 15px;
+    }
+  }
 }
 
-//! =========================== XL DEVICES (≤1200px) Desktop / Small desktop ======================================== */
+/* =========================================================
+   XL DEVICES (≤1200px)
+   Desktop / Small desktop
+========================================================= */
 
 @include xl {
 
-  //? ================= SECTION ================= */
+  /* ================= SECTION ================= */
 
   .section {
     left: 0;
     width: 100%;
   }
 
-  //? ================= SIDEBAR ================= */
+  /* ================= SIDEBAR ================= */
 
   .sidebar {
     transform: translateX(-100%);
@@ -87,18 +159,19 @@
     transform: translateX(0);
   }
 
-  //?  ================= NAV TOGGLER ================= */
+  /* ================= NAV TOGGLER ================= */
 
   .nav-toggler {
     display: flex;
   }
 
-   //? ================= PROFILE ================= */
+  /* ================= PROFILE ================= */
+
   .profile .profile-text h3 {
     margin-left: 15px;
-  } 
+  }
 
-  //? ================= TECH STACK ================= */
+  /* ================= TECH STACK ================= */
 
   .techstack .techstack-item {
     flex: 0 0 33.33%;
@@ -107,7 +180,53 @@
 
   .techstack .techstack-item-inner {
     padding: 25px 18px;
-  } 
+  }
+
+  /* ================= SERVICES ================= */
+
+  .services .services-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+
+  .services .services-item-inner {
+    padding: 30px 18px;
+  }
+
+  .services .services-item h4 {
+    font-size: 18px;
+  }
+
+  .services .services-item p {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  /* ================= PROJECTS ================= */
+
+  .projects {
+
+    .projects-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    .projects-img {
+      height: 240px;
+    }
+
+    .overlay {
+
+      h1 {
+        font-size: 21px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+  }
 }
 
 /* =========================================================
@@ -117,13 +236,13 @@
 
 @include lg {
 
-  //? ================= SECTION ================= */
+  /* ================= SECTION ================= */
 
   .section {
     padding: 0 20px;
   }
 
-  //? ================= SIDEBAR ================= */
+  /* ================= SIDEBAR ================= */
 
   .sidebar .logo {
     top: 40px;
@@ -133,7 +252,7 @@
     font-size: 15px;
   }
 
-  //? ================= HOME ================= */
+  /* ================= HOME ================= */
 
   .home .row {
     flex-direction: column;
@@ -154,7 +273,7 @@
     height: 350px;
   }
 
-  //? ================= PROFILE ================= */
+  /* ================= PROFILE ================= */
 
   .profile .personal-info,
   .profile .education,
@@ -163,7 +282,8 @@
     max-width: 100%;
   }
 
-  //? ================= TECH STACK ================= */
+  /* ================= TECH STACK ================= */
+
   .techstack .techstack-item {
     flex: 0 0 50%;
     max-width: 50%;
@@ -179,7 +299,75 @@
 
   .techstack .techstack-item p {
     font-size: 14px;
-  } 
+  }
+
+  /* ================= SERVICES ================= */
+
+  .services .services-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .services .services-item-inner {
+    padding: 28px 16px;
+  }
+
+  .services .services-item .icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .services .services-item .icon .fa {
+    font-size: 34px;
+    line-height: 58px;
+  }
+
+  .services .services-item h4 {
+    font-size: 17px;
+  }
+
+  .services .services-item p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  /* ================= PROJECTS ================= */
+
+  .projects {
+
+    .projects-item {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    .projects-img {
+      height: 220px;
+    }
+
+    .projects-buttons {
+      gap: 10px;
+    }
+
+    .button-1,
+    .button-2 {
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .overlay {
+      padding: 15px;
+
+      h1 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 13px;
+        line-height: 22px;
+      }
+    }
+  }
 }
 
 /* =========================================================
@@ -189,7 +377,7 @@
 
 @include md {
 
-  //? ================= SECTION ================= */
+  /* ================= SECTION ================= */
 
   .section {
     padding: 0 15px;
@@ -199,14 +387,14 @@
     font-size: 32px;
   }
 
-  //?  ================= NAV TOGGLER ================= */
+  /* ================= NAV TOGGLER ================= */
 
   .nav-toggler {
     top: 15px;
     left: 15px;
   }
 
-  //? ================= SIDEBAR ================= */
+  /* ================= SIDEBAR ================= */
 
   .sidebar {
     width: 240px;
@@ -221,7 +409,7 @@
     font-size: 34px;
   }
 
-  //? ================= HOME ================= */
+  /* ================= HOME ================= */
 
   .home h3.hello {
     font-size: 22px;
@@ -240,7 +428,7 @@
     margin-bottom: 30px;
   }
 
-  //? ================= PROFILE ================= */
+  /* ================= PROFILE ================= */
 
   .profile .profile-text h3 {
     font-size: 22px;
@@ -256,8 +444,9 @@
     padding-left: 25px;
   }
 
-  //? ================= TECH STACK ================= */
-   .techstack .techstack-item {
+  /* ================= TECH STACK ================= */
+
+  .techstack .techstack-item {
     flex: 0 0 50%;
     max-width: 50%;
   }
@@ -283,6 +472,88 @@
     font-size: 13px;
     line-height: 22px;
   }
+
+  /* ================= SERVICES ================= */
+
+  .services .services-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .services .services-item-inner {
+    padding: 25px 15px;
+  }
+
+  .services .services-item .icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 22px;
+  }
+
+  .services .services-item .icon .fa {
+    font-size: 30px;
+    line-height: 55px;
+  }
+
+  .services .services-item h4 {
+    font-size: 16px;
+  }
+
+  .services .services-item p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  /* ================= PROJECTS ================= */
+
+  .projects {
+
+    .projects-heading {
+      margin-bottom: 30px;
+
+      h2 {
+        font-size: 26px;
+      }
+    }
+
+    .projects-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .projects-img {
+      height: 250px;
+    }
+
+    .projects-buttons {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .projects-buttons a {
+      width: 100%;
+    }
+
+    .button-1,
+    .button-2,
+    .view-all {
+      width: 100%;
+      text-align: center;
+    }
+
+    .overlay {
+
+      h1 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 13px;
+        line-height: 21px;
+      }
+    }
+  }
 }
 
 /* =========================================================
@@ -292,7 +563,7 @@
 
 @include sm {
 
-  //? ================= SIDEBAR ================= */
+  /* ================= SIDEBAR ================= */
 
   .sidebar {
     width: 220px;
@@ -303,7 +574,7 @@
     top: 35px;
   }
 
-  //? ================= HOME ================= */
+  /* ================= HOME ================= */
 
   .home h3.hello {
     font-size: 20px;
@@ -327,7 +598,7 @@
     height: auto;
   }
 
-  //? ================= PROFILE ================= */
+  /* ================= PROFILE ================= */
 
   .profile .profile-text h3 {
     font-size: 20px;
@@ -354,8 +625,9 @@
     line-height: 22px;
   }
 
-  //? ================= TECH STACK ================= */
-    .techstack .techstack-item {
+  /* ================= TECH STACK ================= */
+
+  .techstack .techstack-item {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -381,7 +653,79 @@
     font-size: 13px;
     line-height: 21px;
   }
- 
+
+  /* ================= SERVICES ================= */
+
+  .services .services-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .services .services-item-inner {
+    padding: 22px 15px;
+  }
+
+  .services .services-item .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+
+  .services .services-item .icon .fa {
+    font-size: 26px;
+    line-height: 50px;
+  }
+
+  .services .services-item h4 {
+    font-size: 16px;
+  }
+
+  .services .services-item p {
+    font-size: 13px;
+    line-height: 21px;
+  }
+
+  /* ================= PROJECTS ================= */
+
+  .projects {
+
+    .projects-heading h2 {
+      font-size: 24px;
+    }
+
+    .projects-item {
+      margin-bottom: 30px;
+    }
+
+    .projects-item-inner {
+      border-width: 5px;
+    }
+
+    .projects-img {
+      height: 220px;
+    }
+
+    .overlay {
+      padding: 14px;
+
+      h1 {
+        font-size: 17px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+
+    .button-1,
+    .button-2,
+    .view-all {
+      height: 42px;
+      font-size: 13px;
+    }
+  }
 }
 
 /* =========================================================
@@ -391,7 +735,7 @@
 
 @include xs {
 
-  //? ================= SECTION ================= */
+  /* ================= SECTION ================= */
 
   .section {
     padding: 0 10px;
@@ -401,14 +745,14 @@
     font-size: 26px;
   }
 
-  //? ================= NAV TOGGLER ================= */
+  /* ================= NAV TOGGLER ================= */
 
   .nav-toggler {
     width: 40px;
     height: 38px;
   }
 
-  //? ================= SIDEBAR ================= */
+  /* ================= SIDEBAR ================= */
 
   .sidebar {
     width: 200px;
@@ -429,7 +773,7 @@
     padding: 5px 10px;
   }
 
-  //? ================= HOME ================= */
+  /* ================= HOME ================= */
 
   .home h3.hello {
     font-size: 18px;
@@ -452,7 +796,7 @@
     text-align: center;
   }
 
-  //? ================= PROFILE ================= */
+  /* ================= PROFILE ================= */
 
   .profile .profile-text h3 {
     font-size: 18px;
@@ -486,8 +830,9 @@
     margin-right: 0;
   }
 
-  //? ================= TECH STACK ================= */
-     .techstack .techstack-item {
+  /* ================= TECH STACK ================= */
+
+  .techstack .techstack-item {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -499,7 +844,6 @@
   .techstack .techstack-item .icon {
     width: 45px;
     height: 45px;
-
     margin-bottom: 15px;
   }
 
@@ -514,5 +858,80 @@
   .techstack .techstack-item p {
     font-size: 12px;
     line-height: 20px;
-  } 
+  }
+
+  /* ================= SERVICES ================= */
+
+  .services .services-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .services .services-item-inner {
+    padding: 20px 12px;
+  }
+
+  .services .services-item .icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 18px;
+  }
+
+  .services .services-item .icon .fa {
+    font-size: 22px;
+    line-height: 45px;
+  }
+
+  .services .services-item h4 {
+    font-size: 15px;
+  }
+
+  .services .services-item p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  /* ================= PROJECTS ================= */
+
+  .projects {
+
+    .projects-heading h2 {
+      font-size: 22px;
+    }
+
+    .projects-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .projects-img {
+      height: 200px;
+    }
+
+    .projects-item-inner {
+      border-width: 4px;
+      border-radius: 8px;
+    }
+
+    .overlay {
+      padding: 12px;
+
+      h1 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 11px;
+        line-height: 18px;
+      }
+    }
+
+    .button-1,
+    .button-2,
+    .view-all {
+      height: 40px;
+      font-size: 12px;
+      padding: 10px 15px;
+    }
+  }
 }
