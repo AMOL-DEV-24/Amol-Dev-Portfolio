@@ -86,6 +86,8 @@
   // ── Projects ─────────────────────────────────────────
   .projects .projects-heading h2 {
     font-size: 30px;
+    margin-left: 15px;
+    margin-top: 15px;
   }
   .projects .projects-item-inner {
     border-width: 6px;
@@ -819,6 +821,11 @@
   }
 
   // ── Services ─────────────────────────────────────────
+  .services .container .row .section-title h2 {
+    top: 5px;
+    left: 15px;
+  }
+
   .services .services-item {
     flex: 0 0 100%;
     max-width: 100%;
@@ -844,6 +851,12 @@
   }
 
   // ── Projects ─────────────────────────────────────────
+
+  .projects .container .row .section-title h2 {
+    top: 5px;
+    left: 15px;
+  }
+
   .projects .projects-heading h2 {
     font-size: 22px;
   }

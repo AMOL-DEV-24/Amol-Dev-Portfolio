@@ -43,14 +43,15 @@
 
 // ── PAGES ──────────────────────────────────────────────────
 // Page-specific styles scoped to each section
-@use "./pages/home/home";             // Hero / home section
-@use "./pages/profile/profile";          // About, education, experience
-@use "./pages/techstack/techstack";        // Skills grid and progress bars
-@use "./pages/services/services";         // Services grid and hover effects
-@use "./pages/services/servicesCard"; // Individual service card styles
-@use "./pages/projects/projects";         // Portfolio grid and overlays
-@use "./pages/projects/projectCards"; // Individual project card styles
-@use "./pages/connect/connect";          // Contact form and info items
+@use "./pages/home";             // Hero / home section
+@use "./pages/profile";          // About, education, experience
+@use "./pages/techstack";        // Skills grid and progress bars
+@use "./pages/techStackCards"; // Individual skill card styles
+@use "./pages/services";         // Services grid and hover effects
+@use "./pages/servicesCard"; // Individual service card styles
+@use "./pages/projects";         // Portfolio grid and overlays
+@use "./pages/projectCards"; // Individual project card styles
+@use "./pages/connect";          // Contact form and info items
 
 // ── RESPONSIVE ──────────────────────────────────────────────────
 @use "./responsive/responsive";   // Media queries for tablet and mobile breakpoints
