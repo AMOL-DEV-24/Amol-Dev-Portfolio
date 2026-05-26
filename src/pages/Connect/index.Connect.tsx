@@ -1,210 +1,317 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { useState } from "react";
+
 import emailjs from "@emailjs/browser";
-import Swal from "sweetalert2";
+
+import { Formik, Form, Field, ErrorMessage } from "formik";
+
+import * as Yup from "yup";
 
 import Loader from "@/components/Loader/Loader";
 
-const Connect = () => {
-  // ================= FORM STATE =================
+import ToastMessage from "@/components/Toasts/Toasts";
 
-  const [formData, setFormData] = useState({
-    from_name: "",
-    email_id: "",
-    subject: "",
-    message: "",
-  });
+import AlertMessage from "@/components/Alerts/AlertMessage";
+
+// ================= VALIDATION =================
+
+const ContactSchema = Yup.object({
+
+  from_name: Yup.string()
+    .min(3, "Name is too short")
+    .required("Name is required"),
+
+  email_id: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
+
+  subject: Yup.string()
+    .min(5, "Subject is too short")
+    .required("Subject is required"),
+
+  message: Yup.string()
+    .min(10, "Message is too short")
+    .required("Message is required"),
+});
+
+const Connect = () => {
 
   // ================= LOADING =================
 
   const [loading, setLoading] = useState(false);
 
-  // ================= HANDLE CHANGE =================
+  // ================= INITIAL VALUES =================
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
+  const initialValues = {
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    from_name: "",
+
+    email_id: "",
+
+    subject: "",
+
+    message: "",
   };
 
   // ================= SEND EMAIL =================
 
-  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (
 
-    // ================= PREVENT DOUBLE SUBMIT =================
+    values: typeof initialValues,
+
+    { resetForm }: any
+
+  ) => {
 
     if (loading) return;
 
     setLoading(true);
 
     try {
+
       // ================= SEND EMAIL =================
 
-      await emailjs.send(
+      const response = await emailjs.send(
+
         "service_2404",
+
         "template_2404",
+
         {
+
           to_name: "Amol Pawar",
-          from_name: formData.from_name,
-          email_id: formData.email_id,
-          subject: formData.subject,
-          message: formData.message,
+
+          from_name: values.from_name,
+
+          email_id: values.email_id,
+
+          subject: values.subject,
+
+          message: values.message,
         },
-        "TC7NUKSfYhOufN3tJ",
+
+        "TC7NUKSfYhOufN3tJ"
       );
 
-      // ================= AUTO REPLY =================
-      //todo : EmailJS Automatically handles auto reply
-      //todo : Auto reply template => template_auto_replay
-      //todo : Service => service_2404
-      // await emailjs.send( 
-      // "service_2404", 
-      // "template_auto_replay", 
-      //   { 
-      //     from_name: formData.from_name,
-      //     email_id: formData.email_id, 
-      //     subject: formData.subject, 
-      //     message: formData.message, 
-      //   }, 
-      //   "TC7NUKSfYhOufN3tJ" 
-      // );
-      // ================= SUCCESS ALERT =================
+      // ================= SUCCESS TOAST =================
 
-      Swal.fire({
-        icon: "success",
-        title: "Message Sent Successfully",
-        text: "Please check your email for confirmation.",
-        timer: 2500,
-        showConfirmButton: false,
-      });
+      ToastMessage(
+
+        response.status,
+
+        "Message Sent Successfully"
+      );
 
       // ================= RESET FORM =================
 
-      setFormData({
-        from_name: "",
-        email_id: "",
-        subject: "",
-        message: "",
-      });
-    } catch (error) {
+      resetForm();
+
+    } catch (error: any) {
+
       console.log(error);
 
       // ================= ERROR ALERT =================
 
-      Swal.fire({
-        icon: "error",
-        title: "Failed To Send Message",
-        text: "Please try again later.",
-      });
+      AlertMessage(
+
+        "Message Failed",
+
+        "Something went wrong while sending email.",
+
+        "error"
+      );
+
+      // ================= ERROR TOAST =================
+
+      ToastMessage(
+
+        error?.status || 500,
+
+        "Failed To Send Message"
+      );
+
     } finally {
+
       setLoading(false);
     }
   };
 
   return (
+
     <>
+
       {/* ================= GLOBAL LOADER ================= */}
 
       {loading && <Loader />}
 
       <div className="container">
+
         {/* ================= TITLE ================= */}
 
         <div className="row">
+
           <div className="section-title padd-15">
+
             <h2>Connect Me</h2>
+
           </div>
+
         </div>
 
-        <h3 className="connect-title padd-15">Have Any Questions?</h3>
+        {/* ================= SUB TITLE ================= */}
+
+        <h3 className="connect-title padd-15">
+
+          Have Any Questions?
+
+        </h3>
 
         <h4 className="connect-sub-title padd-15">
+
           I'M VERY RESPONSIVE TO MESSAGES
+
         </h4>
 
         {/* ================= FORM ================= */}
 
-        <div className="row">
-          <form className="connect-form padd-15" onSubmit={sendEmail}>
-            {/* ================= NAME + EMAIL ================= */}
+        <Formik
 
-            <div className="row">
-              <div className="form-item col-6 padd-15">
-                <input
-                  type="text"
-                  name="from_name"
-                  placeholder="Name"
-                  value={formData.from_name}
-                  onChange={handleChange}
-                  required
-                  className="form-control"
-                />
+          initialValues={initialValues}
+
+          validationSchema={ContactSchema}
+
+          onSubmit={handleSubmit}
+        >
+
+          {() => (
+
+            <Form className="connect-form padd-15">
+
+              {/* ================= NAME + EMAIL ================= */}
+
+              <div className="row">
+
+                {/* ================= NAME ================= */}
+
+                <div className="form-item col-6 padd-15">
+
+                  <Field
+                    type="text"
+                    name="from_name"
+                    placeholder="Name"
+                    className="form-control"
+                  />
+
+                  <ErrorMessage
+                    name="from_name"
+                    component="span"
+                    className="form-error"
+                  />
+
+                </div>
+
+                {/* ================= EMAIL ================= */}
+
+                <div className="form-item col-6 padd-15">
+
+                  <Field
+                    type="email"
+                    name="email_id"
+                    placeholder="Email"
+                    className="form-control"
+                  />
+
+                  <ErrorMessage
+                    name="email_id"
+                    component="span"
+                    className="form-error"
+                  />
+
+                </div>
+
               </div>
 
-              <div className="form-item col-6 padd-15">
-                <input
-                  type="email"
-                  name="email_id"
-                  placeholder="Email"
-                  value={formData.email_id}
-                  onChange={handleChange}
-                  required
-                  className="form-control"
-                />
+              {/* ================= SUBJECT ================= */}
+
+              <div className="row">
+
+                <div className="form-item col-12 padd-15">
+
+                  <Field
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    className="form-control"
+                  />
+
+                  <ErrorMessage
+                    name="subject"
+                    component="span"
+                    className="form-error"
+                  />
+
+                </div>
+
               </div>
-            </div>
 
-            {/* ================= SUBJECT ================= */}
+              {/* ================= MESSAGE ================= */}
 
-            <div className="row">
-              <div className="form-item col-12 padd-15">
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="form-control"
-                />
+              <div className="row">
+
+                <div className="form-item col-12 padd-15">
+
+                  <Field
+                    as="textarea"
+                    name="message"
+                    placeholder="Message"
+                    className="form-control"
+                  />
+
+                  <ErrorMessage
+                    name="message"
+                    component="span"
+                    className="form-error"
+                  />
+
+                </div>
+
               </div>
-            </div>
 
-            {/* ================= MESSAGE ================= */}
+              {/* ================= BUTTON ================= */}
 
-            <div className="row">
-              <div className="form-item col-12 padd-15">
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="form-control"
-                />
+              <div className="row">
+
+                <div className="form-item col-12 padd-15">
+
+                  <button
+                    type="submit"
+                    className="btn"
+                    disabled={loading}
+                  >
+
+                    {
+                      loading
+                        ? "SENDING..."
+                        : "SEND MESSAGE"
+                    }
+
+                  </button>
+
+                </div>
+
               </div>
-            </div>
 
-            {/* ================= BUTTON ================= */}
+            </Form>
 
-            <div className="row">
-              <div className="form-item col-12 padd-15">
-                <button type="submit" className="btn" disabled={loading}>
-                  SEND MESSAGE
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
+          )}
+
+        </Formik>
+
       </div>
+
     </>
   );
 };

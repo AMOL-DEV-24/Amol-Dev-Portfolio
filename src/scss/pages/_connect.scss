@@ -158,6 +158,70 @@
     }
   }
 
+    /* ================= FORM VALIDATION ERROR ================= */
+
+  .form-error {
+
+    display: block;
+
+    margin-top: 10px;
+
+    padding-left: 8px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.3px;
+
+    color: #ff4d6d;
+
+    animation: fadeError 0.25s ease;
+
+    text-shadow: 0 0 8px rgba(255, 77, 109, 0.2);
+  }
+
+  /* ================= ERROR INPUT ================= */
+
+  .form-control.error {
+
+    border-color: #ff4d6d;
+
+    box-shadow:
+      0 0 0 4px rgba(255, 77, 109, 0.08),
+      0 0 18px rgba(255, 77, 109, 0.15);
+  }
+
+  /* ================= SUCCESS INPUT ================= */
+
+  .form-control.success {
+
+    border-color: #00ffb3;
+
+    box-shadow:
+      0 0 0 4px rgba(0, 255, 179, 0.08),
+      0 0 18px rgba(0, 255, 179, 0.15);
+  }
+
+  /* ================= ERROR ANIMATION ================= */
+
+  @keyframes fadeError {
+
+    from {
+
+      opacity: 0;
+
+      transform: translateY(-4px);
+    }
+
+    to {
+
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+  }
+
   /* ================= TEXTAREA ================= */
 
   textarea.form-control {
