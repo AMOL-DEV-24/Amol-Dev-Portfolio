@@ -1,23 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-
+//* 1.Global Packages
 import { useState } from "react";
-
 import emailjs from "@emailjs/browser";
-
 import { Formik, Form, Field, ErrorMessage } from "formik";
-
 import * as Yup from "yup";
 
+//* 2.Component Imports 
 import Loader from "@/components/Loader/Loader";
-
 import ToastMessage from "@/components/Toasts/Toasts";
-
 import AlertMessage from "@/components/Alerts/AlertMessage";
 
-// ================= VALIDATION =================
-
+//? ================= YUP VALIDATION =================
 const ContactSchema = Yup.object({
 
   from_name: Yup.string()
@@ -39,29 +34,20 @@ const ContactSchema = Yup.object({
 
 const Connect = () => {
 
-  // ================= LOADING =================
-
+  //* ================  states ===================
   const [loading, setLoading] = useState(false);
 
-  // ================= INITIAL VALUES =================
-
+  //* ================= FORMIK INITIAL VALUES =================
   const initialValues = {
-
     from_name: "",
-
     email_id: "",
-
     subject: "",
-
     message: "",
   };
 
-  // ================= SEND EMAIL =================
-
+  //* ================= SEND EMAIL =================
   const handleSubmit = async (
-
     values: typeof initialValues,
-
     { resetForm }: any
 
   ) => {
@@ -72,7 +58,7 @@ const Connect = () => {
 
     try {
 
-      // ================= SEND EMAIL =================
+      //* ================= SEND EMAIL =================
 
       const response = await emailjs.send(
 
@@ -96,7 +82,7 @@ const Connect = () => {
         "TC7NUKSfYhOufN3tJ"
       );
 
-      // ================= SUCCESS TOAST =================
+      //* ================= SUCCESS TOAST =================
 
       ToastMessage(
 
@@ -105,7 +91,7 @@ const Connect = () => {
         "Message Sent Successfully"
       );
 
-      // ================= RESET FORM =================
+      //* ================= RESET FORM =================
 
       resetForm();
 
@@ -113,7 +99,7 @@ const Connect = () => {
 
       console.log(error);
 
-      // ================= ERROR ALERT =================
+      //* ================= ERROR ALERT =================
 
       AlertMessage(
 
@@ -124,7 +110,7 @@ const Connect = () => {
         "error"
       );
 
-      // ================= ERROR TOAST =================
+      //* ================= ERROR TOAST =================
 
       ToastMessage(
 
