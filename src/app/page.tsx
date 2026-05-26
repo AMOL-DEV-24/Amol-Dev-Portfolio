@@ -5,13 +5,13 @@ import { useState } from "react";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher";
 
-import Home from "@/pages/Home/index.Home";
-import Profile from "@/pages/Profile/index.Profile";
-import TechStack from "@/pages/TechStack/index.TechStack";
-import Services from "@/pages/Services/index.Services";
-import Projects from "@/pages/Projects/index.Projects";
-import AllProjects from "@/pages/Projects/AllProjects";
-import Connect from "@/pages/Connect/index.Connect";
+import Home from "@/features/Home/index.Home";
+import Profile from "@/features/Profile/index.Profile";
+import TechStack from "@/features/TechStack/index.TechStack";
+import Services from "@/features/Services/index.Services";
+import Projects from "@/features/Projects/index.Projects";
+import AllProjects from "@/features/Projects/AllProjects";
+import Connect from "@/features/Connect/index.Connect";
 
 export default function Main() {
 

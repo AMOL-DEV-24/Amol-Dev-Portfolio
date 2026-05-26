@@ -12,7 +12,7 @@ type ProjectProps = {
   };
 };
 
-export default function ProjectCard({ project }: ProjectProps) {
+export default function ProjectCards({ project }: ProjectProps) {
 
   //* props destructuring
   const { image, title, description, liveDemo, code } = project; 

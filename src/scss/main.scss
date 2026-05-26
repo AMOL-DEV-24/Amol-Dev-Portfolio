@@ -38,20 +38,17 @@
 @use "./layout/section";         // Section visibility, titles, and spacing
 @use "./layout/sidebar";         // Aside / sidebar positioning
 
-
-
-
 // ── PAGES ──────────────────────────────────────────────────
 // Page-specific styles scoped to each section
-@use "./pages/home";             // Hero / home section
-@use "./pages/profile";          // About, education, experience
-@use "./pages/techstack";        // Skills grid and progress bars
-@use "./pages/techStackCards"; // Individual skill card styles
-@use "./pages/services";         // Services grid and hover effects
-@use "./pages/servicesCard"; // Individual service card styles
-@use "./pages/projects";         // Portfolio grid and overlays
-@use "./pages/projectCards"; // Individual project card styles
-@use "./pages/connect";          // Contact form and info items
+@use "./features/home";             // Hero / home section
+@use "./features/profile";          // About, education, experience
+@use "./features/techstack";        // Skills grid and progress bars
+@use "./features/techStackCards"; // Individual skill card styles
+@use "./features/services";         // Services grid and hover effects
+@use "./features/servicesCard"; // Individual service card styles
+@use "./features/projects";         // Portfolio grid and overlays
+@use "./features/projectCards"; // Individual project card styles
+@use "./features/connect";          // Contact form and info items
 
 // ── RESPONSIVE ──────────────────────────────────────────────────
 @use "./responsive/responsive";   // Media queries for tablet and mobile breakpoints

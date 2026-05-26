@@ -1,6 +1,6 @@
 "use client";
 
-import ProjectCard from "@/pages/Projects/components/index.ProjectCards";
+import ProjectCards from "@/features/Projects/components/ProjectCards";
 
 import projectsData from "@/data/projectsData";
 
@@ -32,7 +32,7 @@ export default function Projects({ onViewAll }: Props) {
 
         {projectsData.slice(0, 6).map((project, index) => (
 
-          <ProjectCard
+          <ProjectCards
             key={index}
             project={project}
           />
