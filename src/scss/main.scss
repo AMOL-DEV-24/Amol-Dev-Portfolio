@@ -27,6 +27,8 @@
 @use "./components/button";       // .btn styles and variants
 @use "./components/cards";        // Card layouts (skills, services, portfolio)
 @use "./components/loader";       // Page loader animation
+@use "./components/toasts";       // Toast notification styles
+@use "./components/alert";        // Alert popup styles
 @use "./components/theme-switcher"; // Style switcher panel and color dots
 
 // ── LAYOUT ─────────────────────────────────────────────────
