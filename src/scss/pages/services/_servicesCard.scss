@@ -1,0 +1,53 @@
+/* ================= SERVICES CARD ================= */
+
+.services-item-inner {
+  background: var(--bg-black-100);
+  border: 1px solid var(--bg-black-50);
+  border-radius: 10px;
+  padding: 30px 15px;
+  text-align: center;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s ease;
+
+    .fa {
+      font-size: 40px;
+      color: var(--skin-color);
+      transition: 0.3s ease;
+    }
+  }
+
+  &:hover .icon {
+    background: var(--skin-color);
+  }
+
+  &:hover .fa {
+    font-size: 25px;
+    color: #fff;
+  }
+
+  h4 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--text-black-900);
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--text-black-700);
+  }
+}

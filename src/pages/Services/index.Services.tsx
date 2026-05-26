@@ -1,68 +1,33 @@
 "use client";
 
 import { servicesData } from "@/data/servicesData";
+import ServicesCard from "./components/servicesCard";
 
 export default function Services() {
-
   return (
-
     <div className="container">
 
-      {/* ================= SECTION TITLE ================= */}
-
+      {/* SECTION TITLE */}
       <div className="row">
-
         <div className="section-title">
-
           <h2>Services</h2>
-
         </div>
-
       </div>
 
-      {/* ================= SERVICES ITEMS ================= */}
-
+      {/* SERVICES ITEMS */}
       <div className="row">
 
-        {
-          servicesData.map((service, index) => (
+        {servicesData.map((service, index) => (
+          <div className="services-item padd-15" key={index}>
 
-            <div
-              className="services-item padd-15"
-              key={index}
-            >
+            <ServicesCard
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+            />
 
-              <div className="services-item-inner">
-
-                {/* ================= ICON ================= */}
-
-                <div className="icon">
-
-                  <i className={service.icon}></i>
-
-                </div>
-
-                {/* ================= TITLE ================= */}
-
-                <h4>
-
-                  {service.title}
-
-                </h4>
-
-                {/* ================= DESCRIPTION ================= */}
-
-                <p>
-
-                  {service.description}
-
-                </p>
-
-              </div>
-
-            </div>
-          ))
-        }
+          </div>
+        ))}
 
       </div>
 
