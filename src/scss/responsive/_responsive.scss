@@ -586,6 +586,7 @@
   // ── Profile ──────────────────────────────────────────
   .profile .profile-text h3 {
     font-size: 20px;
+    margin-left: 0;
   }
   .profile .profile-text p {
     font-size: 14px;
@@ -772,6 +773,8 @@
   // ── Profile ──────────────────────────────────────────
   .profile .profile-text h3 {
     font-size: 18px;
+    margin-left: 15px;
+    text-align: justify;
   }
   .profile .profile-text p {
     font-size: 13px;
