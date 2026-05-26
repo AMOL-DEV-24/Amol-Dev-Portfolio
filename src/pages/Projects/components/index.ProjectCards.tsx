@@ -12,9 +12,10 @@ type ProjectProps = {
   };
 };
 
-export default function ProjectCard({
-  project,
-}: ProjectProps) {
+export default function ProjectCard({ project }: ProjectProps) {
+
+  //* props destructuring
+  const { image, title, description, liveDemo, code } = project; 
 
   return (
     <div className="projects-item padd-15">
@@ -25,8 +26,8 @@ export default function ProjectCard({
         <div className="projects-img">
 
           <Image
-            src={project.image}
-            alt={project.title}
+            src={image}
+            alt={title}
             width={400}
             height={300}
           />
@@ -36,9 +37,9 @@ export default function ProjectCard({
         {/* ================= OVERLAY ================= */}
         <div className="overlay">
 
-          <h1>{project.title}</h1>
+          <h1>{title}</h1>
 
-          <p>{project.description}</p>
+          <p>{description}</p>
 
         </div>
 
@@ -48,7 +49,7 @@ export default function ProjectCard({
       <div className="projects-buttons">
 
         <a
-          href={project.liveDemo}
+          href={liveDemo}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -58,7 +59,7 @@ export default function ProjectCard({
         </a>
 
         <a
-          href={project.code}
+          href={code}
           target="_blank"
           rel="noopener noreferrer"
         >
