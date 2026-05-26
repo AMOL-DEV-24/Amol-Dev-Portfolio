@@ -1,9 +1,12 @@
 "use client";
 
 import Image from "next/image";
+
 import { useTyped } from "@/hooks/useTyped";
 
 export default function Home() {
+
+  //* ================= TYPED.JS HOOK ================= 
   useTyped(".typing");
 
   return (
