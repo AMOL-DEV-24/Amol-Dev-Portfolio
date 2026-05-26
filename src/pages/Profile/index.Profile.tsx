@@ -50,7 +50,7 @@ export default function Profile() {
               <div className="row">
                 <div className="buttons padd-15">
                   <a
-                    href="/assets/resume/Resume 1/My Resume.pdf"
+                    href="/assets/resume/Resume 2/My Resume.pdf"
                     className="btn"
                     download
                   >
