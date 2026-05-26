@@ -2,7 +2,7 @@
 
 import ProjectCard from "@/pages/Projects/components/index.ProjectCards";
 
-import projectsData from "@/data/projects";
+import projectsData from "@/data/projectsData";
 
 type Props = {
   onViewAll: () => void;
