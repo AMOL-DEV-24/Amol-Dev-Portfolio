@@ -42,6 +42,8 @@
 // Page-specific styles scoped to each section
 @use "./features/home";             // Hero / home section
 @use "./features/profile";          // About, education, experience
+@use "./features/certifications";   // Certifications grid and card styles
+@use "./features/certificationCards"; // Individual certification card styles
 @use "./features/techstack";        // Skills grid and progress bars
 @use "./features/techStackCards"; // Individual skill card styles
 @use "./features/services";         // Services grid and hover effects

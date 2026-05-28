@@ -12,6 +12,7 @@ import Services from "@/features/Services/index.Services";
 import Projects from "@/features/Projects/index.Projects";
 import AllProjects from "@/features/Projects/AllProjects";
 import Connect from "@/features/Connect/index.Connect";
+import Certifications from "@/features/Certifications/index.Certifications";
 
 export default function Main() {
 
@@ -84,6 +85,14 @@ export default function Main() {
         id="Profile"
       >
         <Profile />
+      </section>
+
+      {/* ================= CERTIFICATIONS ================== */}
+      <section
+        className={sectionClass("Certifications", "certifications")}
+        id="Certifications"
+      >
+        <Certifications />
       </section>
 
       {/* ================= TECH STACK ================= */}

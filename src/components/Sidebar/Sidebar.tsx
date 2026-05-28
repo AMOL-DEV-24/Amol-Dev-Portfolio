@@ -88,6 +88,18 @@ export default function Sidebar({
             </a>
           </li>
 
+          {/* CERTIFICATIONS */}
+          <li>
+            <a
+              href="#Certifications"
+              className={activeSection === "Certifications" ? "active" : ""}
+              onClick={(e) => handleNavigation(e, "Certifications")}
+            >
+              <i className="fa fa-certificate"></i>
+              Certifications
+            </a>
+          </li>
+
           {/* TECH STACK */}
           <li>
             <a
