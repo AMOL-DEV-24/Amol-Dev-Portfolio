@@ -10,7 +10,7 @@ export function useTyped(selector: string) {
         "Web Designer",
         "Web Developer",
         "Java Developer",
-        "Android Developer",
+        "Full Stack Developer",
         "Gamer",
       ],
       typeSpeed: 80,

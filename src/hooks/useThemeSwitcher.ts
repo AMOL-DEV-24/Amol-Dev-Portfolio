@@ -20,71 +20,79 @@ type ThemeColor = (typeof colors)[number];
 // Custom hook for theme + dark mode management
 export function useThemeSwitcher() {
 
-  // Stores current selected theme color
-  const [theme, setTheme] = useState<ThemeColor>(() => {
+  // Default theme during SSR
+  const [theme, setTheme] =
+    useState<ThemeColor>("color-1");
 
-    // Prevent SSR errors in Next.js
-    if (typeof window === "undefined") {
-      return "color-1";
-    }
+  // Default dark mode during SSR
+  const [darkMode, setDarkMode] =
+    useState(false);
 
-    // Get saved theme from localStorage
-    return (
-      (localStorage.getItem("theme") as ThemeColor) ||
-      "color-1"
-    );
-  });
+  // Prevent hydration mismatch
+  const [mounted, setMounted] =
+    useState(false);
 
 
-  // Stores dark mode state
-  const [darkMode, setDarkMode] = useState(() => {
-
-    // Prevent SSR issues
-    if (typeof window === "undefined") {
-      return false;
-    }
-
-    // Read dark mode value from localStorage
-    return localStorage.getItem("darkMode") === "true";
-  });
-
-
-  // Apply selected theme class to body
+  // Load saved values after client mounts
   useEffect(() => {
 
-    // Remove previous theme classes
+    const savedTheme =
+      localStorage.getItem("theme") as ThemeColor;
+
+    const savedDarkMode =
+      localStorage.getItem("darkMode");
+
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+
+    if (savedDarkMode === "true") {
+      setDarkMode(true);
+    }
+
+    setMounted(true);
+
+  }, []);
+
+
+  // Apply selected theme
+  useEffect(() => {
+
+    if (!mounted) return;
+
     document.body.classList.remove(...colors);
 
-    // Add active theme class
     document.body.classList.add(theme);
 
-    // Save theme in localStorage
     localStorage.setItem("theme", theme);
 
-  }, [theme]);
+  }, [theme, mounted]);
 
 
-  // Apply/remove dark mode class
+  // Apply dark mode
   useEffect(() => {
 
-    // Toggle dark class on body
-    document.body.classList.toggle("dark", darkMode);
+    if (!mounted) return;
 
-    // Save dark mode state
+    document.body.classList.toggle(
+      "dark",
+      darkMode
+    );
+
     localStorage.setItem(
       "darkMode",
       darkMode.toString()
     );
 
-  }, [darkMode]);
+  }, [darkMode, mounted]);
 
 
-  // Expose states and updater functions
   return {
     theme,
     setTheme,
     darkMode,
     setDarkMode,
     colors,
+    mounted,
   };
 }
