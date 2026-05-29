@@ -20,3 +20,14 @@
 
   transition: transform 0.02s linear;
 }
+
+//* Hide the custom cursor on touch devices */ 
+@media (pointer: coarse) {
+  .neon-cursor {
+    display: none !important;
+  }
+
+  html, body {
+    cursor: auto !important;
+  }
+}
