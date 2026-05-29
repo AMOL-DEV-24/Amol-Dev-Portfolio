@@ -3,6 +3,7 @@ import "../scss/main.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import { Poppins, Clicker_Script } from "next/font/google";
+import Cursor from "@/components/Cursor/Cursor";
 
 // ============================================================
 // LAYOUT — layout.tsx
@@ -56,6 +57,7 @@ export default function RootLayout({
           at runtime e.g. <body class="theme-1 dark">
       ─────────────────────────────────────────────────── */}
       <body>
+        <Cursor/>
         {children}
       </body>
     </html>
